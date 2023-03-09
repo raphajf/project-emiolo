@@ -15,4 +15,11 @@ export class AuthService {
     const newUser = new this.userModel(userDetails);
     await newUser.save();
   }
+
+  async findUser(emailUser: string) {
+    const user = await this.userModel.findOne({
+      email: emailUser,
+    });
+    return user;
+  }
 }
